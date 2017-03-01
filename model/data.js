@@ -29,7 +29,7 @@ exports.dataUpdate = async (user, [date, active,,, efficiency]) => {
 };
 
 const lastGet = async (user) => {
-  const last = await redis.get(`up:last:${user}`) || '[]';
+  const last = await redis.get(`${DB}:last:${user}`) || '[]';
   try {
     return JSON.parse(last);
   } catch (e) {
@@ -40,11 +40,11 @@ const lastGet = async (user) => {
 exports.lastGet = lastGet;
 
 exports.lastSet = async (user, last) => {
-  await redis.set(`up:last:${user}`, JSON.stringify(last));
+  await redis.set(`${DB}:last:${user}`, JSON.stringify(last));
 };
 
 exports.lastClear = async () => {
-  const keys = await redis.keys('up:last:*');
+  const keys = await redis.keys(`${DB}:last:*`);
   keys.forEach(async (item) => {
     await redis.del(item);
   });
@@ -52,6 +52,7 @@ exports.lastClear = async () => {
 
 exports.getState = async (user) => {
   const last = await lastGet(user);
+  if (last.length === 0) { return ''; }
   const time = Math.abs(moment(last).diff()) / 60000;
   const efficiency = parseFloat(last[4]);
   if (time > 60) {

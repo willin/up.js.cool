@@ -14,6 +14,6 @@ app.use(_.get('/', (ctx) => {
   ctx.body = 'Hello Koa';
 }));
 
-require('./extra/404')(app);
+require('./route')(app);
 
 app.listen(3000);

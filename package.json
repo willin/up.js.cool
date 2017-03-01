@@ -1,7 +1,15 @@
 {
   "name": "up.js.cool",
   "version": "1.0.0",
-  "main": "index.js",
+  "scripts": {
+    "start:server": "NODE_ENV=prod node server",
+    "start:crontab": "NODE_ENV=prod node crontab",
+    "dev:server": "node server",
+    "dev:crontab": "node crontab"
+  },
+  "engines": {
+    "node" : ">=7.6.0"
+  },
   "repository": "git@github.com:js-cool/up.js.cool.git",
   "author": "willin <willin@willin.org>",
   "license": "MIT",
