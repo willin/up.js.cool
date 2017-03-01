@@ -4,3 +4,4 @@ node_modules/
 *.log
 *.demo.js
 *.prod.js
+*.prod.conf
