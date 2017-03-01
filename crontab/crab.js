@@ -16,7 +16,7 @@ module.exports = async ({user = '', key = ''} = {}) => {
 
   const last = await lastGet(user);
   let operator = last.length === 0;
-
+  console.log(data.rows);
   data.rows.forEach(async (item) => {
     if (operator) {
       // 插入数据

@@ -53,7 +53,7 @@ exports.lastClear = async () => {
 exports.getState = async (user) => {
   const last = await lastGet(user);
   if (last.length === 0) { return ''; }
-  const time = Math.abs(moment(last).diff()) / 60000;
+  const time = Math.abs(moment(last[0]).diff()) / 60000;
   const efficiency = parseFloat(last[4]);
   if (time > 60) {
     return 'offline';
