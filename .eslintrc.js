@@ -17,6 +17,10 @@ module.exports = {
     'no-param-reassign': [1, { props: false }],
     'no-underscore-dangle': [2, { allowAfterThis: true, allowAfterSuper: false }],
     'consistent-return': 1,
+    "no-mixed-operators": [2,{
+      "groups": [["&", "|", "^", "~", "<<", ">>", ">>>"], ["&&", "||"]],
+      "allowSamePrecedence": true
+    }],
     'import/no-dynamic-require': 0,
     'import/extensions': [2, 'always', {
       'js': 'never',
