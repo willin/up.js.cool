@@ -55,12 +55,11 @@ exports.getState = async (user) => {
   const time = Math.abs(moment(last).diff()) / 60000;
   const efficiency = parseFloat(last[4]);
   if (time > 60) {
-    await redis.set(`up:user:${user}`, 'offline');
+    return 'offline';
   } else if (efficiency > 90) {
-    await redis.set(`up:user:${user}`, 'busy');
+    return 'busy';
   } else if (efficiency < 50) {
-    await redis.set(`up:user:${user}`, 'free');
-  } else {
-    await redis.set(`up:user:${user}`, 'online');
+    return 'free';
   }
+  return 'online';
 };
