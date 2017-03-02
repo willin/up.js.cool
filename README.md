@@ -2,6 +2,29 @@
 
 Node.js 版本要求： ***>= 7.6.0***
 
+## 安装
+
+`config` 目录下的 `*.dev.*` 为配置文件范例，新建对应的 `*.prod.*` 配置文件。
+
+新建 `MySQL` 表：
+
+```sql
+CREATE TABLE `data` (
+  `user` char(16) NOT NULL DEFAULT '' COMMENT '用户',
+  `active` int(3) unsigned NOT NULL COMMENT '活跃时间（秒）',
+  `efficiency` decimal(5,2) NOT NULL COMMENT '效率（%）',
+  `date` int(10) unsigned NOT NULL COMMENT '数据时间（转时间戳）',
+  KEY `whereorder` (`user`,`date`),
+  KEY `date` (`date`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+```
+
+## 运行
+
+* Redis 服务
+* MySQL 服务
+* Nginx 服务\*
+
 ## 定时任务
 
 1. 每周一凌晨两点更新 SSL 证书

@@ -1,4 +1,4 @@
-exports.cdn = 'https://go.sh.gg/images/';
+exports.cdn = 'http://localhost:4124/';
 
 exports.redis = {
   host: '127.0.0.1',

@@ -28,6 +28,26 @@ exports.dataUpdate = async (user, [date, active,,, efficiency]) => {
   return isEmpty(result) ? -1 : result.affectedRows;
 };
 
+exports.dataList = async (user) => {
+  const key = `${DB}:data:${user}`;
+  const data = await redis.get(key);
+  if (data !== null) {
+    try {
+      return JSON.parse(data);
+    } catch (e) {
+      // await redis.del(key);
+    }
+  }
+  const mysql = await pool(mysqlOptions);
+  const sql = format('SELECT active,efficiency,date FROM ?? WHERE user = ? AND date > ? ORDER BY date DESC LIMIT 288',
+    [TABLENAME, user, parseInt(new Date() / 1000, 10) - 86400]);
+  const result = await mysql.query(sql);
+  mysql.release();
+  const returnData = isEmpty(result) ? [] : result;
+  await redis.setex(key, 50, JSON.stringify(returnData));
+  return returnData;
+};
+
 exports.historyClear = async () => {
   const mysql = await pool(mysqlOptions);
   const sql = format('DELETE FROM ?? WHERE date < ?',
@@ -59,7 +79,7 @@ exports.lastClear = async () => {
   });
 };
 
-exports.getState = async (user) => {
+exports.stateGet = async (user) => {
   const last = await lastGet(user);
   if (last.length === 0) { return ''; }
   const time = Math.abs(moment(last[0]).diff()) / 60000;
