@@ -5,22 +5,15 @@
     "start:server": "NODE_ENV=prod node server",
     "start:crontab": "NODE_ENV=prod node crontab",
     "dev:server": "node server",
-    "dev:crontab": "node crontab"
+    "dev:crontab": "node crontab",
+    "dev:cdn": "browser-sync start --port 4124 --serveStatic 'static' --files 'static'"
   },
   "engines": {
-    "node" : ">=7.6.0"
+    "node": ">=7.6.0"
   },
   "repository": "git@github.com:js-cool/up.js.cool.git",
   "author": "willin <willin@willin.org>",
   "license": "MIT",
-  "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^3.16.1",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.0"
-  },
   "dependencies": {
     "koa": "^2.0.1",
     "koa-route": "^3.2.0",
@@ -29,5 +22,14 @@
     "wrescuetime": "^1.0.5",
     "wulian-mysql": "^1.0.1",
     "wulian-redis": "^0.0.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "browser-sync": "^2.18.8",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
   }
 }

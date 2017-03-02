@@ -9,18 +9,20 @@
   <meta name="keywords" content="Willin,Willin Wang,王之琳,长岛冰泪" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"
   />
-  <link rel="shortcut icon" href="//{{cdn}}/images/favicon.ico" />
+  <link rel="shortcut icon" href="{{cdn}}/images/favicon.ico" />
 </head>
 
 <body>
   <script>
     var request = new XMLHttpRequest();
+    var users = JSON.parse('{{users}}');
     function get() {
       request.open('GET', `/{{user}}/data`, true);
       request.send();
     }
     request.onload = function () {
-      setTimeout(get, 60000); if (request.status >= 200 && request.status < 400) { // Success! 
+      setTimeout(get, 60000);
+      if (request.status >= 200 && request.status < 400) { // Success! 
         var data = JSON.parse(request.responseText);
         console.log(data);
       }
