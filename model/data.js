@@ -28,6 +28,15 @@ exports.dataUpdate = async (user, [date, active,,, efficiency]) => {
   return isEmpty(result) ? -1 : result.affectedRows;
 };
 
+exports.historyClear = async () => {
+  const mysql = await pool(mysqlOptions);
+  const sql = format('DELETE FROM ?? WHERE date < ?',
+    [TABLENAME, parseInt(new Date() / 1000, 10) - 86400 * 30]);
+  const result = await mysql.query(sql);
+  mysql.release();
+  return isEmpty(result) ? -1 : result.affectedRows;
+};
+
 const lastGet = async (user) => {
   const last = await redis.get(`${DB}:last:${user}`) || '[]';
   try {
