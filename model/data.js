@@ -10,7 +10,7 @@ const DB = mysqlOptions.database;
 const TABLENAME = `${DB}.data`;
 const redis = client(redisOptions);
 
-exports.dataAdd = async (user, [date, active,,, efficiency]) => {
+exports.dataAdd = async (user, [date, active, , , efficiency]) => {
   const mysql = await pool(mysqlOptions);
   const sql = format('INSERT INTO ?? (user,active,efficiency,date) VALUES (?,?,?,?)',
     [TABLENAME, user, active, efficiency, parseInt(new Date(date) / 1000, 10)]);

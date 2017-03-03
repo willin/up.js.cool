@@ -19,11 +19,34 @@ CREATE TABLE `data` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 ```
 
+注意将 `Nginx` 的配置文件加入到服务中。
+
+CertBot 签发 SSL 证书教程： <>
+
+```bash
+yarn
+# 或
+npm i 
+```
+
 ## 运行
 
 * Redis 服务
 * MySQL 服务
 * Nginx 服务\*
+
+## 命令
+
+本地测试：
+
+```bash
+# 启动Web服务
+npm run dev:server
+# 启动计划任务
+npm run dev:crontab
+# 启动静态文件存储
+npm run dev:cdn
+```
 
 ## 定时任务
 
@@ -31,6 +54,12 @@ CREATE TABLE `data` (
 2. 每天凌晨1点清空30天之前历史数据
 3. 每天凌晨0点清除采集计时器
 4. 间隔50-70秒（随机）采集每个用户的数据
+
+## TODO List
+
+* 图表优化
+* 加入联系方式
+* 部署教程
 
 ## License
 

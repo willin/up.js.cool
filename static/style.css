@@ -1,0 +1,401 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: sans-serif;
+    font-weight: 100;
+    letter-spacing: 0.01em;
+}
+
+
+/* --------------------------
+ * Element Styles
+ * --------------------------
+*/
+
+body {
+    min-width: 320px;
+    background-color: #fff;
+    color: #777;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: rgb(75, 75, 75);
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: 1.125em;
+}
+
+a {
+    color: #3b8bba;
+ /* block-background-text-normal */
+    text-decoration: none;
+}
+
+a:visited {
+    color: #265778;
+ /* block-normal-text-normal */
+}
+
+aside a, aside a:visited {
+    color: rgb(169, 226, 255);
+}
+
+aside a img, #status {
+    width: 1em;
+    height: 1em;
+}
+
+/* --------------------------
+ * Layout Styles
+ * --------------------------
+*/
+
+/* Navigation Push Styles */
+#layout {
+    position: relative;
+    padding-left: 0;
+}
+
+#layout.active #menu {
+    left: 160px;
+    width: 160px;
+}
+
+/* --------------------------
+ * Header Module Styles
+ * --------------------------
+*/
+
+.header {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    letter-spacing: 0.05em;
+}
+
+.header h1 {
+    font-size: 300%;
+    font-weight: 100;
+    margin: 0;
+}
+
+.header h2 {
+    font-size: 125%;
+    font-weight: 100;
+    line-height: 1.5;
+    margin: 0;
+    color: #666;
+    letter-spacing: -0.02em;
+}
+
+
+ /* --------------------------
+  * Content Module Styles
+  * --------------------------
+ */
+
+/* The content div is placed as a wrapper around all the docs */
+#main {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/* --------------------------
+ * Footer Module Styles
+ * --------------------------
+*/
+
+.footer {
+    font-size: 87.5%;
+    border-top: 1px solid #eee;
+    margin-top: 3.4286em;
+    padding: 1.1429em;
+    background: rgb(250, 250, 250);
+}
+
+.legal {
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.legal-license {
+    margin-top: 0;
+}
+
+.legal-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.legal-copyright {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* --------------------------
+ * Main Navigation Bar Styles
+ * --------------------------
+*/
+
+/* Add transition to containers so they can push in and out */
+#layout,
+#menu,
+.menu-link {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+#layout.active .menu-link {
+    left: 160px;
+}
+
+#menu {
+    margin-left: -160px;
+ /* "#menu" width */
+    width: 160px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+ /* so the menu or its navicon stays above all content */
+    background: #191818;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#menu a {
+    color: #999;
+    border: none;
+    white-space: normal;
+    padding: 0.625em 1em;
+}
+
+#menu .pure-menu-open {
+    background: transparent;
+    border: 0;
+}
+
+#menu .pure-menu ul {
+    border: none;
+    background: transparent;
+    display: block;
+}
+
+#menu .pure-menu ul,
+    #menu .pure-menu .menu-item-divided {
+    border-top: 1px solid #333;
+}
+
+#menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
+    background: #333;
+}
+
+.menu-link {
+    position: fixed;
+    display: block;
+ /* show this only on small screens */
+    top: 0;
+    left: 0;
+ /* "#menu width" */
+    background: #000;
+    background: rgba(0,0,0,0.7);
+    font-size: 11px;
+ /* change this value to increase/decrease button size */
+    z-index: 10;
+    width: 4em;
+    height: 4em;
+    padding: 1em;
+}
+
+.menu-link:hover,
+        .menu-link:focus {
+    background: #000;
+}
+
+.menu-link span {
+    position: relative;
+    display: block;
+    margin-top: 0.9em;
+}
+
+.menu-link span,
+        .menu-link span:before,
+        .menu-link span:after {
+    background-color: #fff;
+    width: 100%;
+    height: .2em;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.menu-link span:before,
+            .menu-link span:after {
+    position: absolute;
+    top: -.55em;
+    content: " ";
+}
+
+.menu-link span:after {
+    top: .55em;
+}
+
+.menu-link.active span {
+    background: transparent;
+}
+
+.menu-link.active span:before {
+    -webkit-transform: rotate(45deg) translate(.5em, .4em);
+    -moz-transform: rotate(45deg) translate(.5em, .4em);
+    -ms-transform: rotate(45deg) translate(.5em, .4em);
+    -o-transform: rotate(45deg) translate(.5em, .4em);
+    transform: rotate(45deg) translate(.5em, .4em);
+}
+
+.menu-link.active span:after {
+    -webkit-transform: rotate(-45deg) translate(.4em, -.3em);
+    -moz-transform: rotate(-45deg) translate(.4em, -.3em);
+    -ms-transform: rotate(-45deg) translate(.4em, -.3em);
+    -o-transform: rotate(-45deg) translate(.4em, -.3em);
+    transform: rotate(-45deg) translate(.4em, -.3em);
+}
+
+#menu .pure-menu-heading {
+    font-size: 125%;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin-top: 0;
+    padding: 0.5em 0.8em;
+    text-transform: uppercase;
+}
+
+#menu .pure-menu-heading:hover,
+    #menu .pure-menu-heading:focus {
+    color: #999;
+}
+
+#menu .pure-menu-selected {
+    background: #1f8dd6;
+}
+
+#menu .pure-menu-selected a {
+    color: #fff;
+}
+
+#menu li.pure-menu-selected a:hover,
+        #menu li.pure-menu-selected a:focus {
+    background: none;
+}
+
+
+
+
+/* --------------------------
+ * Responsive Styles
+ * --------------------------
+*/
+
+@media screen and (min-width: 35.5em) {
+
+    .legal-license {
+        text-align: left;
+        margin: 0;
+    }
+
+    .legal-copyright,
+    .legal-links,
+    .legal-links li {
+        text-align: right;
+        margin: 0;
+    }
+}
+
+@media (max-width: 58em) {
+    /* Only apply this when the window is smaller. Otherwise, the following
+    case results in extra padding on the left:
+        * Make the window small. (Rotate to portrait on a mobile.)
+        * Tap the menu to trigger the active state.
+        * Make the window large again. (Rotate to landscape on mobile.)
+    */
+    #layout.active {
+        position: relative;
+        left: 160px;
+    }
+}
+
+@media (min-width: 58em) {
+
+    #layout {
+        padding-left: 160px;
+ /* left col width "#menu" */
+        left: 0;
+    }
+
+    #menu {
+        left: 160px;
+    }
+
+    .menu-link {
+        position: fixed;
+        left: 160px;
+        display: none;
+    }
+
+    #layout.active .menu-link {
+        left: 160px;
+    }
+}
+ 
+.u-sm-1-2{
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+  width: 50%;
+  *width: 49.9690%;
+}
+
+#chart{
+    max-width: 100%;
+    width:100%;
+    height: 320px;
+}
