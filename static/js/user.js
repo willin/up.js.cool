@@ -141,6 +141,9 @@
       menuLink = document.getElementById('menuLink'),
       content = document.getElementById('main');
 
+    window.addEventListener('resize', function () {
+      myChart.resize();
+    });
     function toggleClass(element, className) {
       var classes = element.className.split(/\s+/),
         length = classes.length,
