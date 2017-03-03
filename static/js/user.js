@@ -32,7 +32,11 @@
       var result = JSON.parse(request.responseText);
       var data = result.data;
       updateUser();
-      tip.className = result.status;
+      if (tip.className === '') {
+        tip.className = result.status;
+      } else if (tip.className !== result.status) {
+        window.location.reload();
+      }
       switch (result.status) {
         case 'busy': {
           tip.innerHTML = '忙碌中，请勿打扰';
