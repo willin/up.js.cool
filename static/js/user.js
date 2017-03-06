@@ -57,9 +57,9 @@
       myChart.setOption({
         series: [{
           data: data.map(x => ({
-            name: new Date((x.date - 28800) * 1000),
+            name: new Date(x.date * 1000),
             value: [
-              new Date((x.date - 28800) * 1000),
+              new Date(x.date * 1000),
               x.efficiency
             ]
           }))
