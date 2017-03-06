@@ -13,7 +13,7 @@ const redis = client(redisOptions);
 exports.dataAdd = async (user, [date, active, , , efficiency]) => {
   const mysql = await pool(mysqlOptions);
   const sql = format('INSERT INTO ?? (user,active,efficiency,date) VALUES (?,?,?,?)',
-    [TABLENAME, user, active, efficiency, parseInt(new Date(date.endsWith('Z') ? date : `${date}Z`) / 1000, 10)]);
+    [TABLENAME, user, active, efficiency, parseInt(new Date(date) / 1000, 10)]);
   const result = await mysql.query(sql);
   mysql.release();
   return isEmpty(result) ? -1 : result.affectedRows;
@@ -22,7 +22,7 @@ exports.dataAdd = async (user, [date, active, , , efficiency]) => {
 exports.dataUpdate = async (user, [date, active,,, efficiency]) => {
   const mysql = await pool(mysqlOptions);
   const sql = format('UPDATE ?? SET active = ?, efficiency = ? WHERE user = ? AND date = ?',
-    [TABLENAME, active, efficiency, user, parseInt(new Date(date.endsWith('Z') ? date : `${date}Z`) / 1000, 10)]);
+    [TABLENAME, active, efficiency, user, parseInt(new Date(date) / 1000, 10)]);
   const result = await mysql.query(sql);
   mysql.release();
   return isEmpty(result) ? -1 : result.affectedRows;
