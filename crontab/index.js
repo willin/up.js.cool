@@ -1,7 +1,7 @@
 const later = require('later');
-const {users} = require('../config');
-const {random} = require('../lib');
-const {lastClear, historyClear} = require('../model/data');
+const { users } = require('../config');
+const { random } = require('../lib');
+const { lastClear, historyClear } = require('../model/data');
 const crab = require('./crab');
 const updateCertbot = require('./certbot');
 const dingbot = require('./dingbot');
