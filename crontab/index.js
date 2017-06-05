@@ -4,6 +4,7 @@ const {random} = require('../lib');
 const {lastClear, historyClear} = require('../model/data');
 const crab = require('./crab');
 const updateCertbot = require('./certbot');
+const dingbot = require('./dingbot');
 
 users.forEach(async (x) => {
   // 每分钟抓取用户数据
@@ -12,6 +13,10 @@ users.forEach(async (x) => {
     await crab(x);
   }, later.parse.recur().every(random(50, 70)).second());
 });
+
+later.setInterval(async () => {
+  await dingbot('willin');
+}, later.parse.recur().every(random(50, 70)).second());
 
 // 每天 0:00 清除计时器
 later.setInterval(lastClear, later.parse.cron('0 0 */1 * * ?'));

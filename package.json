@@ -15,13 +15,14 @@
   "author": "willin <willin@willin.org>",
   "license": "MIT",
   "dependencies": {
+    "@dwing/mysql": "^1.0.2",
+    "@dwing/redis": "^1.0.0",
+    "dingbot": "^1.1.0",
     "koa": "^2.0.1",
     "koa-route": "^3.2.0",
     "later": "^1.2.0",
     "moment": "^2.17.1",
-    "wrescuetime": "^1.0.5",
-    "wulian-mysql": "^1.0.1",
-    "wulian-redis": "^0.0.3"
+    "wrescuetime": "^1.0.5"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",

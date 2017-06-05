@@ -12,3 +12,5 @@ exports.mysql = {
   password: 'root',
   database: 'up'
 };
+
+exports.dingBot = '';

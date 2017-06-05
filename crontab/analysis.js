@@ -1,6 +1,6 @@
 const Wr = require('wrescuetime');
-const client = require('wulian-redis');
-const {redis: redisOptions} = require('../config');
+const client = require('@dwing/redis');
+const { redis: redisOptions } = require('../config');
 
 const redis = client(redisOptions);
 

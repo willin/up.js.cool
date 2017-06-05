@@ -1,6 +1,6 @@
-const { pool, format } = require('wulian-mysql');
+const { pool, format } = require('@dwing/mysql');
 const moment = require('moment');
-const client = require('wulian-redis');
+const client = require('@dwing/redis');
 
 const { mysql: mysqlOptions, redis: redisOptions } = require('../config');
 const { isEmpty } = require('../lib');
