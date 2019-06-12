@@ -13,24 +13,20 @@
   },
   "repository": "git@github.com:js-cool/up.js.cool.git",
   "author": "willin <willin@willin.org>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
-    "@dwing/mysql": "^1.0.2",
-    "@dwing/redis": "^1.0.0",
+    "@xibang/mysql": "^1.0.1",
+    "@xibang/redis": "^1.0.1",
     "dingbot": "^1.1.0",
-    "koa": "^2.0.1",
+    "koa": "^2.7.0",
     "koa-route": "^3.2.0",
     "later": "^1.2.0",
-    "moment": "^2.17.1",
-    "wrescuetime": "^1.0.5"
+    "moment": "^2.24.0",
+    "wrescuetime": "^3.0.1"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "browser-sync": "^2.18.8",
-    "eslint": "^3.16.1",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.0"
+    "browser-sync": "^2.26.7",
+    "eslint": "^5.16.0",
+    "eslint-config-willin": "^1.0.2"
   }
 }

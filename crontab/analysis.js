@@ -1,12 +1,12 @@
 const Wr = require('wrescuetime');
-const client = require('@dwing/redis');
+const client = require('@xibang/redis');
 const { redis: redisOptions } = require('../config');
 
 const redis = client(redisOptions);
 
-module.exports = async ({user = '', key = ''} = {}) => {
-  const wr = new Wr(key);
-  const data = await wr.getData({
+module.exports = async ({ user = '', key = '' } = {}) => {
+  const wr = Wr(key);
+  const data = await wr.analyticData({
     rs: 'day',
     pv: 'rank',
     rk: 'efficiency',

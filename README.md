@@ -2,6 +2,8 @@
 
 Node.js 版本要求： ***>= 7.6.0***
 
+[![github](https://img.shields.io/github/followers/willin.svg?style=social&label=Followers)](https://github.com/willin) [![codebeat badge](https://codebeat.co/badges/e057a1c3-49a1-44af-8cca-13aca31de5eb)](https://codebeat.co/projects/github-com-willin-up-js-cool-master)
+
 ## 安装
 
 `config` 目录下的 `*.dev.*` 为配置文件范例，新建对应的 `*.prod.*` 配置文件。
@@ -26,7 +28,7 @@ CertBot 签发 SSL 证书教程： <>
 ```bash
 yarn
 # 或
-npm i 
+npm i
 ```
 
 ## 运行
@@ -61,10 +63,15 @@ npm run dev:cdn
 * 加入联系方式
 * 部署教程
 
+## 相关项目推荐
+
+- 阿里云SDK： https://github.com/willin/waliyun
+- 腾讯云SDK： https://github.com/willin/wqcloud
+- 网易云音乐SDK： https://github.com/willin/wnm
+- Rescuetime SDK： https://github.com/willin/wrescuetime
+
 ## License
 
-MIT
+Apache 2.0
 
-通过支付宝捐赠：
-
-![qr](https://cloud.githubusercontent.com/assets/1890238/15489630/fccbb9cc-2193-11e6-9fed-b93c59d6ef37.png)
+<img width="483" alt="donate" src="https://user-images.githubusercontent.com/1890238/59274374-cd594300-8c8c-11e9-8ee8-fe9be4b49cdb.png">

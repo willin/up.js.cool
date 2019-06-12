@@ -3,7 +3,7 @@ exports.cdn = 'http://localhost:4124/';
 exports.redis = {
   host: '127.0.0.1',
   port: 6379,
-  db: 0
+  db: 2
 };
 
 exports.mysql = {

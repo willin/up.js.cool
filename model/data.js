@@ -1,6 +1,6 @@
-const { pool, format } = require('@dwing/mysql');
+const { pool, format } = require('@xibang/mysql');
 const moment = require('moment');
-const client = require('@dwing/redis');
+const client = require('@xibang/redis');
 
 const { mysql: mysqlOptions, redis: redisOptions } = require('../config');
 const { isEmpty } = require('../lib');
@@ -15,7 +15,6 @@ exports.dataAdd = async (user, [date, active, , , efficiency]) => {
   const sql = format('INSERT INTO ?? (user,active,efficiency,date) VALUES (?,?,?,?)',
     [TABLENAME, user, active, efficiency, parseInt(new Date(date) / 1000, 10)]);
   const result = await mysql.query(sql);
-  mysql.release();
   return isEmpty(result) ? -1 : result.affectedRows;
 };
 
@@ -24,7 +23,6 @@ exports.dataUpdate = async (user, [date, active,,, efficiency]) => {
   const sql = format('UPDATE ?? SET active = ?, efficiency = ? WHERE user = ? AND date = ?',
     [TABLENAME, active, efficiency, user, parseInt(new Date(date) / 1000, 10)]);
   const result = await mysql.query(sql);
-  mysql.release();
   return isEmpty(result) ? -1 : result.affectedRows;
 };
 
@@ -42,7 +40,6 @@ exports.dataList = async (user) => {
   const sql = format('SELECT active,efficiency,date FROM ?? WHERE user = ? AND date > ? ORDER BY date DESC LIMIT 288',
     [TABLENAME, user, parseInt(new Date() / 1000, 10) - 86400]);
   const result = await mysql.query(sql);
-  mysql.release();
   const returnData = isEmpty(result) ? [] : result;
   await redis.setex(key, 50, JSON.stringify(returnData));
   return returnData;
@@ -53,7 +50,6 @@ exports.historyClear = async () => {
   const sql = format('DELETE FROM ?? WHERE date < ?',
     [TABLENAME, parseInt(new Date() / 1000, 10) - 86400 * 30]);
   const result = await mysql.query(sql);
-  mysql.release();
   return isEmpty(result) ? -1 : result.affectedRows;
 };
 
@@ -86,9 +82,11 @@ exports.stateGet = async (user) => {
   const efficiency = parseFloat(last[4]);
   if (time > 60) {
     return 'offline';
-  } else if (efficiency > 90) {
+  }
+  if (efficiency > 90) {
     return 'busy';
-  } else if (efficiency < 50) {
+  }
+  if (efficiency < 50) {
     return 'free';
   }
   return 'online';

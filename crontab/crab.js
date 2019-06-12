@@ -1,11 +1,11 @@
 const Wr = require('wrescuetime');
 const { dataAdd, dataUpdate, lastGet, lastSet } = require('../model/data');
 
-module.exports = async ({user = '', key = ''} = {}) => {
-  const wr = new Wr(key);
+module.exports = async ({ user = '', key = '' } = {}) => {
+  const wr = Wr(key);
   let data = {};
   try {
-    data = await wr.getData({
+    data = await wr.analyticData({
       rs: 'minute',
       pv: 'interval',
       rk: 'efficiency'
@@ -13,7 +13,6 @@ module.exports = async ({user = '', key = ''} = {}) => {
   } catch (e) {
     return;
   }
-
   const last = await lastGet(user);
   let operator = last.length === 0;
 

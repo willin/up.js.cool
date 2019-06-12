@@ -1,5 +1,5 @@
 const Bot = require('dingbot');
-const client = require('@dwing/redis');
+const client = require('@xibang/redis');
 const { redis: redisOptions, dingBot: dingBotOptions } = require('../config');
 const { stateGet } = require('../model/data');
 
