@@ -21,7 +21,7 @@
     "koa": "^2.7.0",
     "koa-route": "^3.2.0",
     "later": "^1.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "wrescuetime": "^3.0.1"
   },
   "devDependencies": {
